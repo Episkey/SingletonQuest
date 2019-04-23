@@ -1,12 +1,21 @@
 public class Singleton {
-
+    // singleton declaration
     private static Singleton instance;
 
-    // TODO 1 : fix singleton bad implementation
     public static Singleton getInstance() {
-        return new Singleton();
+        if (instance == null) {
+            // s'il n'existe pas créer le
+            instance = new Singleton();
+        }
+        // dans tous les cas retourne la même instance.
+        return instance;
     }
 
+    // constructeur privé pour empêcher de nouvelles instances.
+    private Singleton() {
+    }
+
+    // infos que contient le singleton.
     private Bank bank;
 
     public void openAccount(int value) {
